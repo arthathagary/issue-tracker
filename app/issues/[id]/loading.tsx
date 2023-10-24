@@ -1,9 +1,5 @@
-import IssueStatusBadge from '@/app/components/IssueStatusBadge'
-import { Heading, Flex, Card,Text, Box } from '@radix-ui/themes'
-import React from 'react'
-import Markdown from 'react-markdown'
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import { Box, Card, Flex, Heading, Text } from '@radix-ui/themes'
+import {Skeleton} from "@/app/components/index"
 
 const LoadingIssueDetailsPage = () => {
   return (
