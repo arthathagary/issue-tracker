@@ -1,6 +1,5 @@
 import { issueSchema } from "@/app/validationScemas";
 import prisma from "@/prisma/client";
-import { data } from "autoprefixer";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(reqest:NextRequest,
