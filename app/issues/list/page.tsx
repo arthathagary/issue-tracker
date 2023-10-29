@@ -16,11 +16,17 @@ const IssuesPage = async ({searchParams}:{searchParams:{status:Status,orderBy:ke
     {label:'Status',value:'status',className:'hidden md:table-cell'},
     {label:'Created',value:'createdAt',className:'hidden md:table-cell'}
   ]
-  
+  const statuses = Object.values(Status);
+  const status = statuses.includes(searchParams.status)
+    ? searchParams.status
+    : undefined;
+
+  const orderBy = searchParams.orderBy?{[searchParams.orderBy]:'asc'}:undefined;
   const issues = await prisma.issue.findMany({
     where:{
       status:searchParams.status
-    }
+    },
+    orderBy
   })
  
   return (
