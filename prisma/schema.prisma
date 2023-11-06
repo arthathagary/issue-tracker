@@ -5,6 +5,7 @@ generator client {
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Issue {
@@ -16,6 +17,7 @@ model Issue {
   updatedAt        DateTime @updatedAt
   assignedToUserId String?  @db.VarChar(255)
   assignedToUser   User?    @relation(fields: [assignedToUserId], references: [id])
+  @@index([assignedToUserId], name: "assignedToUserId_index")
 }
 
 model Account {
@@ -34,6 +36,7 @@ model Account {
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+  @@index([userId], name: "userId_index")
 }
 
 model Session {
@@ -42,6 +45,7 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId], name: "userId_index")
 }
 
 model User {
