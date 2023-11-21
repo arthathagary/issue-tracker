@@ -2,7 +2,7 @@ export {default} from 'next-auth/middleware';
 
 export const config = {
     matcher : [
-        '/issues/new',
-        '/issues/list/edit/:id+'
+        // '/issues/new',
+        // '/issues/list/edit/:id+'
     ]
 }
